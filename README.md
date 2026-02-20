@@ -80,7 +80,6 @@ This starts two services:
 | Service | Description | Access from host |
 |---|---|---|
 | **db** | PostgreSQL 16 | `localhost:5432` |
-| **adminer** | Web-based DB admin UI | [http://localhost:8080](http://localhost:8080) |
 
 ### 2. Verify the database is ready
 
@@ -98,9 +97,9 @@ docker compose exec db psql -U postgres -d testdb -c "SELECT 1;"
 
 If this prints a table with `1`, the database is working.
 
-### 4. Connect from DataGrip
+### 4. Connect from DataGrip/DBeaver
 
-Create a new **PostgreSQL** data source in DataGrip with these settings:
+Create a new **PostgreSQL** data source in DataGrip/DBeaver with these settings:
 
 | Setting | Value |
 |---|---|
@@ -116,19 +115,7 @@ Click **Test Connection** — it should succeed. If it fails:
 - Make sure nothing else is using port 5432: `ss -tlnp | grep 5432`
 - Check the container logs: `docker compose logs db`
 
-### 5. Connect from Adminer (alternative)
-
-Open [http://localhost:8080](http://localhost:8080) in your browser and use:
-
-| Setting | Value |
-|---|---|
-| **System** | PostgreSQL |
-| **Server** | `db` (the Docker service name) |
-| **Username** | `postgres` |
-| **Password** | `example` |
-| **Database** | `testdb` |
-
-### 6. Run the script
+### 5. Run the script
 
 The default configuration in `delta_sharing_to_postgres.py` already matches the Docker setup. Just set your `DELTA_SHARING_PROFILE_PATH` and `DELTA_SHARING_TABLE`, then run:
 
@@ -136,7 +123,7 @@ The default configuration in `delta_sharing_to_postgres.py` already matches the 
 python delta_sharing_to_postgres.py
 ```
 
-### 7. Stop and clean up
+### 6. Stop and clean up
 
 ```bash
 # Stop containers (data is preserved in a Docker volume)
