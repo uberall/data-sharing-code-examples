@@ -75,13 +75,13 @@ If you have not received your profile file, contact the Uberall Data Engineering
 Open a terminal and clone the repository:
 
 ```bash
-git clone https://gitlab.com/momentfeed/uberall/development/ar/data-lake/lakehouse/databricks/delta-sharing-code-examples.git
+git clone https://github.com/uberall/data-sharing-code-examples
 ```
 
 Navigate into the project directory:
 
 ```bash
-cd delta-sharing-code-examples
+cd data-sharing-code-examples
 ```
 
 The repository contains the following files:
